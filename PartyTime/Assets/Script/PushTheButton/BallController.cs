@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
     // Record how much force will be appied to ball each button click.
-    [SerializeField] private float PushForce;
+    [SerializeField] private float PushForce = 10f;
+    [SerializeField] private float RebounceInterval = 0.4f;
 
     private bool GameOver;
+    private float TimeCounter;
+    private float AccelerationTimeCounter;
+    private bool AtStart = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.PushForce = 10;
         this.GameOver = false;
+        this.TimeCounter = 0.0f;
+        this.AccelerationTimeCounter = 0.0f;
     }
 
     private void OnValidate()
@@ -32,16 +38,42 @@ public class BallController : MonoBehaviour
 
         if (this.GameOver) return;
 
-        if (Input.GetButtonDown("Fire1"))
+        
+        this.TimeCounter += Time.deltaTime;
+        if (this.TimeCounter > this.RebounceInterval && !this.AtStart)
         {
-            // Push to the right.
-            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -this.PushForce));
+            // Apply automatical counterforce for a certain period with acceleration.
+            this.Rebounce(1 + Mathf.Pow(this.AccelerationTimeCounter, 2) / 10);
+            this.TimeCounter = 0.0f;
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (!this.AtStart)
         {
-            // Push to the left.
-            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, this.PushForce));
+            this.AccelerationTimeCounter += Time.deltaTime;
+        }
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            this.AddForce();
+            this.AccelerationTimeCounter = 0.0f;
+        }
+    }
+
+    private void AddForce(float multiplier = 1.0f)
+    {
+        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, multiplier * this.PushForce));
+    }
+
+    private void Rebounce(float multiplier = 1.0f)
+    {
+        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, multiplier * (-this.PushForce)));
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "RightWall")
+        {
+            this.AtStart = false;
         }
     }
 
@@ -56,16 +88,19 @@ public class BallController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "RightWall")
         {
-            Debug.Log("Game over! Reached right");
-            this.GameOver = true;
+            this.AtStart = true;
         }
     }
 
     private void ResetGame()
     {
         var position = this.gameObject.transform.position;
-        this.gameObject.transform.position = new Vector3(position.x, position.y, 0);
+        this.gameObject.transform.position = new Vector3(position.x, position.y, -4.25f);
+        this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         this.GameOver = false;
+        this.AtStart = true;
+        this.TimeCounter = 0.0f;
+        this.AccelerationTimeCounter = 0.0f;
         Debug.Log("Game has been reset.");
     }
 }
