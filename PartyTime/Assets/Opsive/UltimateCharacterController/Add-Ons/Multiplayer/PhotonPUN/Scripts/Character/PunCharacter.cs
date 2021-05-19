@@ -32,6 +32,9 @@ namespace Opsive.UltimateCharacterController.AddOns.Multiplayer.PhotonPun.Charac
 
         private bool m_ItemsPickedUp;
 
+        [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
+        public static GameObject LocalPlayerInstance;
+
         /// <summary>
         /// Initialize the default values.
         /// </summary>
@@ -40,6 +43,15 @@ namespace Opsive.UltimateCharacterController.AddOns.Multiplayer.PhotonPun.Charac
             m_GameObject = gameObject;
             m_CharacterLocomotion = m_GameObject.GetCachedComponent<UltimateCharacterLocomotion>();
             m_Inventory = m_GameObject.GetCachedComponent<InventoryBase>();
+
+            if (photonView.IsMine)
+            {
+                LocalPlayerInstance = this.gameObject;
+            }
+            // #Critical
+            // we flag as don't destroy on load so that instance survives level synchronization, thus giving a seamless experience when levels load.
+            DontDestroyOnLoad(this.gameObject);
+            Debug.Log("Don't Destroy");
         }
 
         /// <summary>
