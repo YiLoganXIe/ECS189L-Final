@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
+using Photon.Pun;
 
-public class BallController : MonoBehaviour
+public class BallController : MonoBehaviourPun
 {
     // Record how much force will be appied to ball each button click.
     [SerializeField] private float PushForce = 10f;
@@ -54,14 +55,16 @@ public class BallController : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-            this.AddForce();
-            this.AccelerationTimeCounter = 0.0f;
+            photonView.RPC("AddForce", RpcTarget.All);
         }
     }
 
-    private void AddForce(float multiplier = 1.0f)
+    [PunRPC]
+    private void AddForce()
     {
-        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, multiplier * this.PushForce));
+        Debug.Log("Add force");
+        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, this.PushForce));
+        this.AccelerationTimeCounter = 0.0f;
     }
 
     private void Rebounce(float multiplier = 1.0f)
