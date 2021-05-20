@@ -44,7 +44,7 @@ public class BallController : MonoBehaviourPun
         if (this.TimeCounter > this.RebounceInterval && !this.AtStart)
         {
             // Apply automatical counterforce for a certain period with acceleration.
-            this.Rebounce(1 + Mathf.Pow(this.AccelerationTimeCounter, 2) / 10);
+            this.Rebounce(Mathf.Pow(this.AccelerationTimeCounter + 1, 2) / 10);
             this.TimeCounter = 0.0f;
         }
 
@@ -55,13 +55,15 @@ public class BallController : MonoBehaviourPun
         
         if (Input.GetButtonDown("Fire1"))
         {
+            //AddForce();
             photonView.RPC("AddForce", RpcTarget.All);
         }
     }
 
     [PunRPC]
-    private void AddForce()
+    private void AddForce(PhotonMessageInfo info)
     {
+        Debug.Log($"Sent from {info.Sender}.");
         Debug.Log("Add force");
         this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, this.PushForce));
         this.AccelerationTimeCounter = 0.0f;
@@ -84,8 +86,6 @@ public class BallController : MonoBehaviourPun
     {
         if (collision.gameObject.tag == "LeftWall")
         {
-            //Destroy(collision.gameObject);
-            //this.Mushrooms++;
             Debug.Log("Game over! Reached left");
             this.GameOver = true;
         }
