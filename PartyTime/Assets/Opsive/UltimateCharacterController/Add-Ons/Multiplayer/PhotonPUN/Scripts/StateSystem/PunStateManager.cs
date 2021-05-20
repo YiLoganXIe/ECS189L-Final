@@ -10,6 +10,7 @@ namespace Opsive.UltimateCharacterController.AddOns.Multiplayer.PhotonPun.StateS
     using Opsive.Shared.Events;
     using Opsive.Shared.Game;
     using Opsive.Shared.StateSystem;
+    using Opsive.UltimateCharacterController.AddOns.Multiplayer.PhotonPun.Game;
     using Photon.Pun;
     using Photon.Realtime;
     using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace Opsive.UltimateCharacterController.AddOns.Multiplayer.PhotonPun.StateS
         private SendOptions m_ReliableSendOptions;
         private int[] m_TargetActors;
         private object[] m_EventData = new object[3];
+        
 
         /// <summary>
         /// Initializes the default values.
@@ -90,6 +92,10 @@ namespace Opsive.UltimateCharacterController.AddOns.Multiplayer.PhotonPun.StateS
 
             // Keep track of the character states for as long as the character is within the room.
             m_ActiveCharacterStates.Add(character, new HashSet<string>());
+
+            var Spawner = this.gameObject.GetComponent<SingleCharacterSpawnManager>();
+            Spawner.SpawnPointGrouping = PhotonNetwork.CurrentRoom.PlayerCount;
+          
         }
 
         /// <summary>
