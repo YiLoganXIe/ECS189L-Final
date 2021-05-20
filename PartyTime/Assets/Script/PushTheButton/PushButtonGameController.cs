@@ -17,8 +17,6 @@ public class PushButtonGameController : MonoBehaviourPunCallbacks, IPunObservabl
     void Start()
     {
         // TODO: Change to dynamic binding.
-        Debug.Log("Switch!");
-        PhotonNetwork.LoadLevel("PushTheButton");
         var cube = GameObject.Find("Cube");
         this.BallController = cube.GetComponent<BallController>();
     }

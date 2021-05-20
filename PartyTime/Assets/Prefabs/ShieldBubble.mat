@@ -75,6 +75,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _ASEOutlineWidth: 0
     - _BumpScale: 1
@@ -91,7 +92,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Opacity: 0.504
+    - _Opacity: 0.824
     - _Parallax: 0.02
     - _Smoothness: 0.8
     - _SmoothnessTextureChannel: 0
@@ -106,7 +107,8 @@ Material:
     m_Colors:
     - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DistortionColor: {r: 0.18396229, g: 1, b: 0.8230772, a: 1}
+    - _DistortionColor: {r: 0.7685564, g: 0.9528302, b: 0.9141623, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FadeColor: {r: 0, g: 1, b: 0.99215686, a: 0}
+    - _FadeColor: {r: 0.89444643, g: 0.9433962, b: 0.9357115, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

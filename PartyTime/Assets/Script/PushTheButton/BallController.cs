@@ -52,11 +52,11 @@ public class BallController : MonoBehaviour
             this.AccelerationTimeCounter += Time.deltaTime;
         }
 
-        //if (Input.GetButtonDown("Fire1"))
-        //{
-        //    this.AddForce();
-        //    //this.AccelerationTimeCounter = 0.0f;
-        //}
+        if (Input.GetButtonDown("Fire1"))
+        {
+            this.AddForce();
+            //this.AccelerationTimeCounter = 0.0f;
+        }
     }
 
     public void AddForce(float multiplier = 1.0f)

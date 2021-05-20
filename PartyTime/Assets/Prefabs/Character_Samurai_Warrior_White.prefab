@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: 3855816931653032440}
   - component: {fileID: 2020303966739081582}
   - component: {fileID: 5944980241926341113}
-  - component: {fileID: 8344546136215087704}
+  - component: {fileID: 9000028387015025114}
   m_Layer: 31
   m_Name: Character_Samurai_Warrior_White
   m_TagString: Player
@@ -3592,7 +3592,6 @@ MonoBehaviour:
   - {fileID: 6738831143503599577}
   - {fileID: 1494853706169431463}
   - {fileID: 7462420672997456615}
-  - {fileID: 8344546136215087704}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -3707,7 +3706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133ee19fb76303841857ab404ffd240e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8344546136215087704
+--- !u!114 &9000028387015025114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3716,10 +3715,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3786349767971456123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b7cfcb8e89cf413cb05a023662e98da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3874f5cf3ea434deb830af96610607f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BallController: {fileID: 0}
+  Spell: {fileID: 3994549123453081041, guid: 559a80748d0914e4da0d9acd189f13b8, type: 3}
 --- !u!1 &3786349767971456185
 GameObject:
   m_ObjectHideFlags: 0
