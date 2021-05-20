@@ -208,7 +208,7 @@ namespace Opsive.UltimateCharacterController.AddOns.Multiplayer.PhotonPun.Game
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
             base.OnPlayerEnteredRoom(newPlayer);
-
+            this.m_SpawnPointGrouping = PhotonNetwork.CurrentRoom.PlayerCount;
             SpawnPlayer(newPlayer);
         }
 

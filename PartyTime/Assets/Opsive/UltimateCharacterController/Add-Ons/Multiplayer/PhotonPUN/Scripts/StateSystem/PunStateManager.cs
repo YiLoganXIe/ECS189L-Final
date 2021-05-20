@@ -92,9 +92,6 @@ namespace Opsive.UltimateCharacterController.AddOns.Multiplayer.PhotonPun.StateS
 
             // Keep track of the character states for as long as the character is within the room.
             m_ActiveCharacterStates.Add(character, new HashSet<string>());
-
-            var Spawner = this.gameObject.GetComponent<SingleCharacterSpawnManager>();
-            Spawner.SpawnPointGrouping = PhotonNetwork.CurrentRoom.PlayerCount;
           
         }
 
