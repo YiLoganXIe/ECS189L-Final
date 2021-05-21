@@ -14,7 +14,9 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var m_camera = this.gameObject.GetComponent<Camera>();
         this.gameObject.transform.position = main_camera.transform.position;
         this.gameObject.transform.rotation = main_camera.transform.rotation;
+        m_camera.fieldOfView = main_camera.fieldOfView;
     }
 }
