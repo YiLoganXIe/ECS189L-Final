@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
+
+    // normal capsule collider that hugs player's body -- good for bumping into particles to collect them
     private CapsuleCollider CapsuleCollider;
-    
 
     [SerializeField] private int numParticles = 0;
 
