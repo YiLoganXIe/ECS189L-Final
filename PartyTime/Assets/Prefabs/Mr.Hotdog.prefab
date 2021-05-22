@@ -1924,7 +1924,7 @@ GameObject:
   - component: {fileID: 7224446972257565879}
   m_Layer: 30
   m_Name: Katana
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6392,7 +6392,7 @@ GameObject:
   - component: {fileID: 772916375705447735}
   m_Layer: 30
   m_Name: Elbow_R
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
