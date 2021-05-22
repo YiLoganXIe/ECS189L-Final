@@ -144,10 +144,7 @@ namespace GamingTotoro.PartyTime
             // #Critical
             // Load the Room Level.
             PhotonNetwork.LoadLevel("PlayGround");
-    
         }
-
-
         #endregion
     }
 }
