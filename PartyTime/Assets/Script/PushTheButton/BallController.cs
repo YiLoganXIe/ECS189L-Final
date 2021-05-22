@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
+using Photon.Pun;
 
-public class BallController : MonoBehaviour
+public class BallController : MonoBehaviourPun
 {
     // Record how much force will be appied to ball each button click.
     [SerializeField] private float PushForce = 10f;
@@ -43,7 +44,7 @@ public class BallController : MonoBehaviour
         if (this.TimeCounter > this.RebounceInterval && !this.AtStart)
         {
             // Apply automatical counterforce for a certain period with acceleration.
-            this.Rebounce(1 + Mathf.Pow(this.AccelerationTimeCounter, 2) / 10);
+            this.Rebounce(Mathf.Pow(this.AccelerationTimeCounter + 1, 2) / 10);
             this.TimeCounter = 0.0f;
         }
 
@@ -54,14 +55,18 @@ public class BallController : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-            this.AddForce();
-            this.AccelerationTimeCounter = 0.0f;
+            //AddForce();
+            photonView.RPC("AddForce", RpcTarget.All);
         }
     }
 
-    private void AddForce(float multiplier = 1.0f)
+    [PunRPC]
+    private void AddForce(PhotonMessageInfo info)
     {
-        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, multiplier * this.PushForce));
+        Debug.Log($"Sent from {info.Sender}.");
+        Debug.Log("Add force");
+        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, this.PushForce));
+        this.AccelerationTimeCounter = 0.0f;
     }
 
     private void Rebounce(float multiplier = 1.0f)
@@ -81,8 +86,6 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.tag == "LeftWall")
         {
-            //Destroy(collision.gameObject);
-            //this.Mushrooms++;
             Debug.Log("Game over! Reached left");
             this.GameOver = true;
         }
