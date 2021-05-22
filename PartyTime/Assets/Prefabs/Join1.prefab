@@ -2866,8 +2866,9 @@ GameObject:
   - component: {fileID: 3855816931653032440}
   - component: {fileID: 2020303966739081582}
   - component: {fileID: 5944980241926341113}
+  - component: {fileID: 2582987748584474791}
   m_Layer: 31
-  m_Name: Character_Samurai_Warrior_White
+  m_Name: Join1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3711,6 +3712,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133ee19fb76303841857ab404ffd240e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2582987748584474791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3786349767971456123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49af357b7d18a4e118a363ed684e5eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numParticles: 0
 --- !u!1 &3786349767971456185
 GameObject:
   m_ObjectHideFlags: 0
