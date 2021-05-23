@@ -1924,7 +1924,7 @@ GameObject:
   - component: {fileID: 7224446972257565879}
   m_Layer: 30
   m_Name: Katana
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4363,7 +4363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6253098461754449457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.958, z: 0}
+  m_LocalPosition: {x: -0.007, y: 0.224, z: -0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3973757620357325487}
@@ -6392,7 +6392,7 @@ GameObject:
   - component: {fileID: 772916375705447735}
   m_Layer: 30
   m_Name: Elbow_R
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
