@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Debug.Log(collision);
-        if (collision.gameObject.tag == "Particle")
+        if (collision.gameObject.CompareTag("Particle"))
         {
             Destroy(collision.gameObject);
             this.numParticles++;
