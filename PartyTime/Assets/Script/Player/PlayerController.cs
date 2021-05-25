@@ -37,8 +37,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Particle"))
         {
             Destroy(collision.gameObject);
-            this.numParticles++;
-            Debug.Log($"numParticles: {this.numParticles}");
+            // increment user's particle count --> use OnDestroy script on Particle
         }
     }
 }

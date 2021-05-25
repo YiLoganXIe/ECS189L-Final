@@ -42,7 +42,7 @@ public class InteractableObjectController : MonoBehaviour
         Debug.Log("Trigger Enter!");
         Debug.Log(other);
         Debug.Log(other.gameObject.tag + other.gameObject.name);
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("PlayerCollider"))
         {
             Debug.Log("Player entered radius");
 
@@ -55,7 +55,7 @@ public class InteractableObjectController : MonoBehaviour
     {
         Debug.Log("Trigger Exit!");
         Debug.Log(other);
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("PlayerCollider"))
         {
             Debug.Log("Player has left the radius");
 

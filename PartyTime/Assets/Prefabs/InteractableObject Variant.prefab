@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3560734421566084257}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: InteractableObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -56,6 +56,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4602664674298059017, guid: 32899a45358f94646ae9116cdffdf3c1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4602664674298059017, guid: 32899a45358f94646ae9116cdffdf3c1, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -65,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4602664674298059023, guid: 32899a45358f94646ae9116cdffdf3c1, type: 3}
       propertyPath: m_TagString
-      value: InteractableObj
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4602664674298059124, guid: 32899a45358f94646ae9116cdffdf3c1, type: 3}
       propertyPath: m_RootOrder
