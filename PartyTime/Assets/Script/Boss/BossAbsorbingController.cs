@@ -5,7 +5,10 @@ using UnityEngine;
 public class BossAbsorbingController : MonoBehaviour
 {
     private List<GameObject> AbsorbingObjects = new List<GameObject>();
-    [SerializeField] private float LerpAhead = 10f;
+    [SerializeField] private float LerpAhead = 1f;
+    [SerializeField] private GameObject LerpTarget;
+    [SerializeField] private float TargetRadius = 5f;
+    private int ParticleNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -16,19 +19,16 @@ public class BossAbsorbingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (var obj in this.AbsorbingObjects)
-        {
-            this.Absorb(obj);
-        }
+        this.Absorb();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("On Trigger From Boss!");
-        if (other.gameObject.CompareTag("SuckableObject"))
+        //Debug.Log("On Trigger From Boss!");
+       
+        if (other.gameObject.CompareTag("SuckableObject") || other.gameObject.CompareTag("SuckableParticle"))
         {
             this.AddToAbsorbingList(other.gameObject);
-            Debug.Log("Collide with Suckable!");
         }
     }
 
@@ -40,10 +40,36 @@ public class BossAbsorbingController : MonoBehaviour
         }
     }
 
-    private void Absorb(GameObject obj)
+    private void Absorb()
     {
-        var curPosition = obj.transform.position;
-        var nextPosition = Vector3.Lerp(curPosition, this.transform.position, (1f / this.LerpAhead) * Time.deltaTime);
-        obj.transform.position = nextPosition;
+        int index = 0;
+        while(index < this.AbsorbingObjects.Count)
+        {
+            var obj = this.AbsorbingObjects[index];
+
+            var curPosition = obj.transform.position;
+            if ((curPosition - this.LerpTarget.transform.position).magnitude > this.TargetRadius)
+            {
+                // Not close enough to the LerpPoint, continue lerping.
+                obj.transform.position = Vector3.Lerp(curPosition, this.LerpTarget.transform.position, this.LerpAhead * Time.deltaTime);
+            }
+            else if (obj.CompareTag("SuckableParticle"))
+            {
+                // Particle close enough to the LerpPoint, Destroy.
+                this.ParticleNum++;
+                Debug.LogFormat("Boss has absorbed a Particle! Total particles absorbed: {}", this.ParticleNum);
+                this.AbsorbingObjects.Remove(obj);
+                Destroy(obj);
+                index += 2;
+                continue;
+            }
+            else
+            {
+                // Object close enough to the LerpPoint, stick to it.
+                obj.transform.position = this.LerpTarget.transform.position;
+            }
+
+            index++;
+        }
     }
 }
