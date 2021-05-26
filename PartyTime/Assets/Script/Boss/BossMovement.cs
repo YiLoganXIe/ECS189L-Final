@@ -12,8 +12,8 @@ public class BossMovement : MonoBehaviour
     // Movement speed in units per second.
     [SerializeField] private float speed = 1.0F;
 
-    private int currentDestination = 1;
-    private int previousDestination = 0;
+    private int currentDestination = 0;
+    private int previousDestination = 3;
     private List<GameObject> DestinationList;
     // Time when the movement started.
     private float startTime;
@@ -56,7 +56,6 @@ public class BossMovement : MonoBehaviour
         if (Vector3.Distance(this.gameObject.transform.position, DestinationList[currentDestination].transform.position) < 0.1)
         {
             Debug.Log("-------------------Reached----------------------------");
-            transform.position = Vector3.Lerp(this.gameObject.transform.position, CurDestination.transform.position, 1);
 
             this.previousDestination = this.currentDestination;
             this.currentDestination += 1;
