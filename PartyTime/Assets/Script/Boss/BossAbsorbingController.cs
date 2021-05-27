@@ -57,7 +57,7 @@ public class BossAbsorbingController : MonoBehaviour
             {
                 // Particle close enough to the LerpPoint, Destroy.
                 this.ParticleNum++;
-                Debug.LogFormat("Boss has absorbed a Particle! Total particles absorbed: {}", this.ParticleNum);
+                Debug.Log($"Boss has absorbed a Particle! Total particles absorbed: {this.ParticleNum}");
                 this.AbsorbingObjects.Remove(obj);
                 Destroy(obj);
                 index += 2;
