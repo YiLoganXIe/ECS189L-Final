@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class LookAtBoss : MonoBehaviour
+public class LookAtBoss : MonoBehaviourPun
 {
     private bool triggered = false;
     private float t = 0;
@@ -10,10 +9,33 @@ public class LookAtBoss : MonoBehaviour
     [SerializeField] GameObject Boss;
     // Angular speed in radians per sec.
     public float speed = 1.0f;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        this.SetEnableComponents(false);
+    }
+
+    private void SetEnableComponents(bool isEnable = false)
+    {
+        if (Boss.GetComponent<MeshRenderer>().enabled != isEnable)
+        {
+            Boss.GetComponent<MeshRenderer>().enabled = isEnable;
+        }
+
+        if (Boss.GetComponent<CapsuleCollider>().enabled != isEnable)
+        {
+            Boss.GetComponent<CapsuleCollider>().enabled = isEnable;
+        }
+
+        if (Boss.GetComponent<BossMovement>().enabled != isEnable)
+        {
+            Boss.GetComponent<BossMovement>().enabled = isEnable;
+        }
+
+        if (Boss.GetComponent<BossAbsorbingController>().enabled != isEnable)
+        {
+            Boss.GetComponent<BossAbsorbingController>().enabled = isEnable;
+        }
     }
 
     // Update is called once per frame
@@ -48,16 +70,21 @@ public class LookAtBoss : MonoBehaviour
         }
     }
 
+    [PunRPC]
+    private void EnableBoss()
+    {
+        this.SetEnableComponents(true);
+    }
+
+    
     private void OnTriggerEnter(Collider other)
     {
-        
-
-        if ((other.tag == "PlayerCollider") && (! triggered))
+        if ((other.tag == "PlayerCollider") && (!triggered))
         {
             var cameraController = Camera.main.GetComponent<Opsive.UltimateCharacterController.Camera.CameraController>();
             cameraController.enabled = false;
-            inCollider = true;
+            photonView.RPC("EnableBoss", RpcTarget.All);
+            this.inCollider = true;
         }
-        
     }
 }

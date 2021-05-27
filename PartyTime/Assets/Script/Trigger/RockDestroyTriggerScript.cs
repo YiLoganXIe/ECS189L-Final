@@ -60,7 +60,7 @@ public class RockDestroyTriggerScript : MonoBehaviour
             this.startTime = Time.time;
             this.startIntensity = this.volGrain.intensity.value;
             this.startSaturation = this.volCG.saturation.value;
-            Debug.Log("starting animation: " + this.startTime);
+            //Debug.Log("starting animation: " + this.startTime);
         }
         if (this.animating)
         {
@@ -96,17 +96,17 @@ public class RockDestroyTriggerScript : MonoBehaviour
             
             if (this.endIntensity == this.volGrain.intensity.value)
             {
-                Debug.Log("finished intensity animation in : " + (Time.time - this.startTime));
+                //Debug.Log("finished intensity animation in : " + (Time.time - this.startTime));
             }
             if (this.endSaturation == this.volCG.saturation.value)
             {
-                Debug.Log("finished saturation animation in : " + (Time.time - this.startTime));
+                //Debug.Log("finished saturation animation in : " + (Time.time - this.startTime));
             }
             this.animationComplete = ((this.volGrain.intensity.value == this.endIntensity) && (this.volCG.saturation.value == this.endSaturation));
         }
         if (this.animationComplete)
         {
-            Debug.Log("animation completed in : " + (Time.time - this.startTime));
+            //Debug.Log("animation completed in : " + (Time.time - this.startTime));
             // Destroy(this.gameObject);
         }
     }
