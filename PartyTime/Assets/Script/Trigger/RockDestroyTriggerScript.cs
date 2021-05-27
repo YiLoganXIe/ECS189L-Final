@@ -12,6 +12,7 @@ public class RockDestroyTriggerScript : MonoBehaviour
     private bool animationComplete = false;
 
     [SerializeField] private GameObject BlockingCaveRock;
+    [SerializeField] private float Radius;
     private GameObject RockDestroyTrigger;
 
     [SerializeField] private GameObject postProcProfile;
@@ -48,6 +49,7 @@ public class RockDestroyTriggerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.isInRange = checkPlayerNum();
         if (this.isInRange && !this.animating)
         {
             // Debug.Log("destroying trigger and rock!");
@@ -108,7 +110,7 @@ public class RockDestroyTriggerScript : MonoBehaviour
             // Destroy(this.gameObject);
         }
     }
-
+/*
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger Enter for RockDestroyTrigger!");
@@ -119,5 +121,17 @@ public class RockDestroyTriggerScript : MonoBehaviour
 
             this.isInRange = true;
         }
+    }*/
+
+    private bool checkPlayerNum()
+    {
+        int counter = 0;
+        Collider[] hitColliders = Physics.OverlapSphere(this.gameObject.transform.position, this.Radius);
+        foreach(var hitCollider in hitColliders)
+        {
+            if (hitCollider.tag == "PlayerCollider")
+                counter++;
+        }
+        return counter == 4;
     }
 }
