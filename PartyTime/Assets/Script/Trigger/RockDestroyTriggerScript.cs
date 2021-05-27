@@ -60,7 +60,7 @@ public class RockDestroyTriggerScript : MonoBehaviour
             this.startTime = Time.time;
             this.startIntensity = this.volGrain.intensity.value;
             this.startSaturation = this.volCG.saturation.value;
-            //Debug.Log("starting animation: " + this.startTime);
+            Debug.Log("starting animation: " + this.startTime);
         }
         if (this.animating)
         {
@@ -96,21 +96,21 @@ public class RockDestroyTriggerScript : MonoBehaviour
             
             if (this.endIntensity == this.volGrain.intensity.value)
             {
-                //Debug.Log("finished intensity animation in : " + (Time.time - this.startTime));
+                Debug.Log("finished intensity animation in : " + (Time.time - this.startTime));
             }
             if (this.endSaturation == this.volCG.saturation.value)
             {
-                //Debug.Log("finished saturation animation in : " + (Time.time - this.startTime));
+                Debug.Log("finished saturation animation in : " + (Time.time - this.startTime));
             }
             this.animationComplete = ((this.volGrain.intensity.value == this.endIntensity) && (this.volCG.saturation.value == this.endSaturation));
         }
         if (this.animationComplete)
         {
-            //Debug.Log("animation completed in : " + (Time.time - this.startTime));
+            Debug.Log("animation completed in : " + (Time.time - this.startTime));
             // Destroy(this.gameObject);
         }
     }
-/*
+    /*
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger Enter for RockDestroyTrigger!");
@@ -121,17 +121,19 @@ public class RockDestroyTriggerScript : MonoBehaviour
 
             this.isInRange = true;
         }
-    }*/
+    }
+    */
+
 
     private bool checkPlayerNum()
     {
         int counter = 0;
-        Collider[] hitColliders = Physics.OverlapSphere(this.gameObject.transform.position, this.Radius);
-        foreach(var hitCollider in hitColliders)
+        GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (var player in Players)
         {
-            if (hitCollider.tag == "PlayerCollider")
+            if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) <= this.Radius)
                 counter++;
         }
-        return counter == 4;
+        return counter == 2;
     }
 }
