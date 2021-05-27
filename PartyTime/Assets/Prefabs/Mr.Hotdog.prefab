@@ -1889,6 +1889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49af357b7d18a4e118a363ed684e5eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suckableParticlePrefab: {fileID: 6198900838080567522, guid: cd824f90cae5d6543a6c8ee9d1d47e92, type: 3}
   numParticles: 0
 --- !u!1 &2608987938216341991
 GameObject:

@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     // normal capsule collider that hugs player's body -- good for bumping into particles to collect them
     private CapsuleCollider CapsuleCollider;
 
+    [SerializeField] private GameObject suckableParticlePrefab;
+
     [SerializeField] private int numParticles = 0;
 
 
@@ -23,7 +25,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("PlaceParticle"))
+        {
+            Instantiate(this.suckableParticlePrefab, transform.position + (transform.forward * 2), Quaternion.identity);
+        }
     }
 
     public int GetNumPlayerParticles()
