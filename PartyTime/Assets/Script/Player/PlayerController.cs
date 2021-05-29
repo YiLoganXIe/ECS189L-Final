@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviourPun
     {
         if (Input.GetButtonDown("PlaceParticle"))
         {
+            this.minusNumParticles();
             var generationPosition = transform.position + (transform.forward * 2);
             photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
         }
