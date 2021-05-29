@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviourPun
         this.CapsuleCollider = this.gameObject.transform.Find("Colliders/CapsuleCollider").GetComponent<CapsuleCollider>();
     }
 
-    [PunRPC]
-    private void SpawnLightParticle(Vector3 position, PhotonMessageInfo info)
+    //[PunRPC]
+    private void SpawnLightParticle(Vector3 position)
     {
-        Debug.Log($"{info.Sender} spawn the suckable particle.");
+        //Debug.Log($"{info.Sender} spawn the suckable particle.");
         Debug.Log($"Particle at: {position}.");
         var particle = Instantiate(this.suckableParticlePrefab, position, Quaternion.identity);
         particle.GetComponent<Rigidbody>().AddForce(new Vector3(0, this.ParticleSpawnUpwardForce, 0));
@@ -39,9 +39,11 @@ public class PlayerController : MonoBehaviourPun
     {
         if (Input.GetButtonDown("PlaceParticle"))
         {
+            
             this.minusNumParticles();
-            var generationPosition = transform.position + (transform.forward * 2) + (transform.up * 2);
-            photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
+            var generationPosition = this.gameObject.transform.position + (transform.forward * 2) + (transform.up * 2);
+            //photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
+            this.SpawnLightParticle(generationPosition);
         }
     }
 

@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 120197075075379336}
   - component: {fileID: 7149731673393809489}
   - component: {fileID: 595639049110511350}
-  - component: {fileID: 520699936445134800}
+  - component: {fileID: 280711800087413783}
   m_Layer: 0
   m_Name: SuckableParticle
   m_TagString: SuckableParticle
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &520699936445134800
+--- !u!114 &280711800087413783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -735,8 +735,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 595639049110511350}
+  ObservedComponents: []
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
