@@ -1,9 +1,10 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
     private Rigidbody rb;
 
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private int numParticles = 0;
 
+    [SerializeField] private float ParticleSpawnUpwardForce;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +25,21 @@ public class PlayerController : MonoBehaviour
         this.CapsuleCollider = this.gameObject.transform.Find("Colliders/CapsuleCollider").GetComponent<CapsuleCollider>();
     }
 
+    [PunRPC]
+    private void SpawnLightParticle(Vector3 position, PhotonMessageInfo info)
+    {
+        Debug.Log($"{info.Sender} spawn the suckable particle.");
+        var particle = Instantiate(this.suckableParticlePrefab, position, Quaternion.identity);
+        particle.GetComponent<Rigidbody>().AddForce(new Vector3(0, this.ParticleSpawnUpwardForce, 0));
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("PlaceParticle"))
         {
-            Instantiate(this.suckableParticlePrefab, transform.position + (transform.forward * 2), Quaternion.identity);
+            var generationPosition = transform.position + (transform.forward * 2);
+            photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
         }
     }
 
@@ -36,13 +48,14 @@ public class PlayerController : MonoBehaviour
         return this.numParticles;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void addNumParticles()
     {
-        // Debug.Log(collision);
-        if (collision.gameObject.CompareTag("Particle"))
-        {
-            Destroy(collision.gameObject);
-            // increment user's particle count --> use OnDestroy script on Particle
-        }
+        numParticles += 1;
     }
+
+    public void minusNumParticles()
+    {
+        numParticles -= 1;
+    }
+
 }

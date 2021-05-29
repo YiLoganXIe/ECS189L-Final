@@ -1175,8 +1175,9 @@ GameObject:
   - component: {fileID: 2804101344044411241}
   - component: {fileID: -6883101969883384381}
   - component: {fileID: -4401781882122351334}
+  - component: {fileID: 3474973894680704285}
   m_Layer: 0
-  m_Name: TempParticle
+  m_Name: Particle
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,6 +1282,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3474973894680704285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8635549860395638185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618be2f25a8d49241880404c457602ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8836654258679074403
 GameObject:
   m_ObjectHideFlags: 0
