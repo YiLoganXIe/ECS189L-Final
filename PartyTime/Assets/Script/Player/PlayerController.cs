@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviourPun
         {
             this.minusNumParticles();
             var generationPosition = transform.position + (transform.forward * 2);
-            photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
+            //photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
+            PhotonNetwork.Instantiate(this.suckableParticlePrefab.name, generationPosition, Quaternion.identity);
         }
     }
 
