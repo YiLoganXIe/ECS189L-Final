@@ -36,10 +36,11 @@ public class PlayerController : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("PlaceParticle"))
+        if (photonView.IsMine && Input.GetButtonDown("PlaceParticle"))
         {
             this.minusNumParticles();
-            var generationPosition = transform.position + (transform.forward * 2);
+            var generationPosition = transform.position + (transform.forward * 2) + (transform.up * 2);
+            //var generationPosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z + 2);
             //photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
             PhotonNetwork.Instantiate(this.suckableParticlePrefab.name, generationPosition, Quaternion.identity);
         }
