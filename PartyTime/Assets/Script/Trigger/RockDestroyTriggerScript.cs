@@ -138,6 +138,6 @@ public class RockDestroyTriggerScript : MonoBehaviour
             if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) <= this.Radius)
                 counter++;
         }
-        return counter == 4;
+        return counter == 2;
     }
 }
