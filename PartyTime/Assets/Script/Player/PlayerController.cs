@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviourPun
     private void SpawnLightParticle(Vector3 position, PhotonMessageInfo info)
     {
         Debug.Log($"{info.Sender} spawn the suckable particle.");
+        Debug.Log($"Particle at: {position}.");
         var particle = Instantiate(this.suckableParticlePrefab, position, Quaternion.identity);
         particle.GetComponent<Rigidbody>().AddForce(new Vector3(0, this.ParticleSpawnUpwardForce, 0));
     }
