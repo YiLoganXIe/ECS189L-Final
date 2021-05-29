@@ -8,6 +8,8 @@ public class BossAbsorbingController : MonoBehaviour
     [SerializeField] private float LerpAhead = 1f;
     [SerializeField] private GameObject LerpTarget;
     [SerializeField] private float TargetRadius = 5f;
+
+    [SerializeField] private int ParticleThreshold = 10;
     private int ParticleNum = 0;
 
     // Start is called before the first frame update
@@ -60,6 +62,13 @@ public class BossAbsorbingController : MonoBehaviour
                 Debug.Log($"Boss has absorbed a Particle! Total particles absorbed: {this.ParticleNum}");
                 this.AbsorbingObjects.Remove(obj);
                 Destroy(obj);
+
+                if (this.ParticleNum >= this.ParticleThreshold)
+                {
+                    Destroy(this.gameObject);
+                    return;
+                }
+
                 index += 2;
                 continue;
             }
