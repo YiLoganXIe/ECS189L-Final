@@ -36,13 +36,14 @@ public class PlayerController : MonoBehaviour
         return this.numParticles;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void addNumParticles()
     {
-        // Debug.Log(collision);
-        if (collision.gameObject.CompareTag("Particle"))
-        {
-            Destroy(collision.gameObject);
-            // increment user's particle count --> use OnDestroy script on Particle
-        }
+        numParticles += 1;
     }
+
+    public void minusNumParticles()
+    {
+        numParticles -= 1;
+    }
+
 }
