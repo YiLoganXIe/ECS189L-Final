@@ -1177,6 +1177,7 @@ GameObject:
   - component: {fileID: 8753625840697272405}
   - component: {fileID: 8532235577321142581}
   - component: {fileID: 479503056394236821}
+  - component: {fileID: 3760460434764634138}
   m_Layer: 31
   m_Name: Mr.Hotdog
   m_TagString: Player
@@ -1891,6 +1892,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suckableParticlePrefab: {fileID: 6198900838080567522, guid: cd824f90cae5d6543a6c8ee9d1d47e92, type: 3}
   numParticles: 0
+  ParticleSpawnUpwardForce: 0
+--- !u!136 &3760460434764634138
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419814003135504169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &2608987938216341991
 GameObject:
   m_ObjectHideFlags: 0
