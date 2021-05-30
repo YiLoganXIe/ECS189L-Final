@@ -41,8 +41,8 @@ public class LookAtBoss : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine && inCollider)
-        {
+        if (inCollider)
+        {   
             t += Time.deltaTime;
             if (t < 4)
             {
@@ -59,7 +59,7 @@ public class LookAtBoss : MonoBehaviourPun
                 // Calculate a rotation a step closer to the target and applies rotation to this object
                 Camera.main.transform.rotation = Quaternion.LookRotation(newDirection);
             }
-            //Camera.main.transform.LookAt(Boss.transform);
+                //Camera.main.transform.LookAt(Boss.transform);
             else
             {
                 inCollider = false;
@@ -76,16 +76,15 @@ public class LookAtBoss : MonoBehaviourPun
         this.SetEnableComponents(true);
     }
 
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if ((other.tag == "PlayerCollider") && (!triggered))
         {
             var cameraController = Camera.main.GetComponent<Opsive.UltimateCharacterController.Camera.CameraController>();
             cameraController.enabled = false;
-            this.inCollider = true;
-
             photonView.RPC("EnableBoss", RpcTarget.All);
+            this.inCollider = true;
         }
     }
 }
