@@ -31,7 +31,14 @@ public class BossAbsorbingController : MonoBehaviour
        
         if (other.gameObject.CompareTag("SuckableObject") || other.gameObject.CompareTag("SuckableParticle"))
         {
-            this.AddToAbsorbingList(other.gameObject);
+            if (other.gameObject.CompareTag("SuckableObject"))
+            {
+                if (Random.Range(0, 10) < 2)
+                    this.AddToAbsorbingList(other.gameObject);
+
+            }
+            else
+                this.AddToAbsorbingList(other.gameObject);
         }
     }
 
