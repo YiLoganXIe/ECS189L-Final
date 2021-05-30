@@ -5,6 +5,7 @@ using UnityEngine;
 public class UpdateParticleCounter : MonoBehaviour
 {
     private GameObject playerRef;
+
     // Start is called before the first frame update
     void Start()
     {

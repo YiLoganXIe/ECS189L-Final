@@ -595,6 +595,7 @@ GameObject:
   - component: {fileID: 7149731673393809489}
   - component: {fileID: -3344853273922333378}
   - component: {fileID: 595639049110511350}
+  - component: {fileID: 9011587358333087371}
   m_Layer: 0
   m_Name: SuckableParticle
   m_TagString: SuckableParticle
@@ -740,6 +741,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &9011587358333087371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6198900838080567522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557288d117e304ff09711be3f90a3c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 0}
 --- !u!1 &6589702603165518632
 GameObject:
   m_ObjectHideFlags: 0
