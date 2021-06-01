@@ -7,11 +7,11 @@ public class BossAbsorbingController : MonoBehaviour
 {
     private List<GameObject> AbsorbingObjects = new List<GameObject>();
     private List<GameObject> AbsorbedObjects = new List<GameObject>();
-    [SerializeField] private float LerpAhead = 1f;
+    [SerializeField] private float LerpAhead = 1.25f;
     [SerializeField] private GameObject LerpTarget;
     [SerializeField] private float TargetRadius = 5f;
 
-    [SerializeField] private int ParticleThreshold = 10;
+    [SerializeField] private int ParticleThreshold = 2;
     private int ParticleNum = 0;
 
     // Start is called before the first frame update
@@ -23,6 +23,10 @@ public class BossAbsorbingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.ParticleNum >= this.ParticleThreshold)
+        {
+            Destroy(this.gameObject);
+        }
         this.Absorb();
     }
 
@@ -35,7 +39,6 @@ public class BossAbsorbingController : MonoBehaviour
             this.AddToAbsorbingList(other.gameObject);
             if (other.gameObject.CompareTag("SuckableParticle"))
             {
-                Debug.Log("Particle Trigger Absorbing: " + other.gameObject.name);
                 other.gameObject.GetComponent<SuckableParticleController>().Absorb();
             }
         }
