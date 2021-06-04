@@ -42,8 +42,6 @@ public class RockDestroyTriggerScript : MonoBehaviour
             Debug.Log("volCG set incorrectly");
         }
             
-        // this.BlockingCaveRock = GameObject.Find("BlockingCaveRock");
-        this.RockDestroyTrigger = this.gameObject.transform.Find("RockDestroyTrigger").gameObject;
     }
 
     // Update is called once per frame
