@@ -1553,8 +1553,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ForceInput: 0
-  m_DisableCursor: 1
-  m_EnableCursorWithEscape: 1
+  m_DisableCursor: 0
+  m_EnableCursorWithEscape: 0
   m_PreventLookVectorChanges: 1
   m_JoystickUpThreshold: 1
 --- !u!114 &7601772440778462225

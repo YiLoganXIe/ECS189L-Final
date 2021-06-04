@@ -129,10 +129,6 @@ public class RockDestroyTriggerScript : MonoBehaviour
     {
         int counter = 0;
         GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
-        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, 50);
-        foreach (var collider in colliders){
-            Debug.Log("Sphere Detect" + collider);
-        }
         foreach (var player in Players)
         {
             if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) <= this.Radius)
