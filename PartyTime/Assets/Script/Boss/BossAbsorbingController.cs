@@ -14,6 +14,8 @@ public class BossAbsorbingController : MonoBehaviour
     [SerializeField] private int ParticleThreshold = 2;
     private int ParticleNum = 0;
 
+    [SerializeField] private GameObject BlockingAreaRock;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,11 @@ public class BossAbsorbingController : MonoBehaviour
             Destroy(this.gameObject);
         }
         this.Absorb();
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(this.BlockingAreaRock);
     }
 
     private void OnTriggerEnter(Collider other)
