@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CountDownController : MonoBehaviour
@@ -52,7 +53,7 @@ public class CountDownController : MonoBehaviour
                 {
                     // Next number.
                     CurrentNum--;
-                    this.TextNumber.GetComponent<UnityEngine.UI.Text>().text = this.CurrentNum.ToString();
+                    this.TextNumber.GetComponent<TextMeshProUGUI>().text = this.CurrentNum.ToString();
                     this.ElapsedTime = 0f;
                 }
                 else
@@ -128,7 +129,7 @@ public class CountDownController : MonoBehaviour
         Debug.Log("Unlock Failed at umber!" + this.CurrentNum);
         this.InGame = false;
         this.CurrentNum = 69;
-        this.TextNumber.GetComponent<UnityEngine.UI.Text>().text = this.CurrentNum.ToString();
+        this.TextNumber.GetComponent<TextMeshProUGUI>().text = this.CurrentNum.ToString();
         this.ElapsedTime = 0f;
     }
 }
