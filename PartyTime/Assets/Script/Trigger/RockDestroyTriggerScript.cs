@@ -54,7 +54,7 @@ public class RockDestroyTriggerScript : MonoBehaviour
         this.isInRange = checkPlayerNum();
         if (this.isInRange && !this.animating)
         {
-            Debug.Log("destroying trigger and rock!");
+            //Debug.Log("destroying trigger and rock!");
             Destroy(this.BlockingCaveRock);
             Destroy(this.RockDestroyTrigger);
 
