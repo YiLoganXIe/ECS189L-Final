@@ -1,3 +1,5 @@
+using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +30,8 @@ public class RockDestroyTriggerScript : MonoBehaviour
     private float startSaturation;
     [SerializeField] private float endSaturation = -70f;
 
+    [SerializeField] private GameObject[] Stones;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,9 +54,14 @@ public class RockDestroyTriggerScript : MonoBehaviour
         this.isInRange = checkPlayerNum();
         if (this.isInRange && !this.animating)
         {
-            // Debug.Log("destroying trigger and rock!");
+            Debug.Log("destroying trigger and rock!");
             Destroy(this.BlockingCaveRock);
             Destroy(this.RockDestroyTrigger);
+
+            foreach (var stone in this.Stones)
+            {
+                stone.GetComponent<FloatStoneTrigger>().DeactiveStone();
+            }
 
             this.animating = true;
             this.startTime = Time.time;
@@ -108,30 +117,18 @@ public class RockDestroyTriggerScript : MonoBehaviour
             // Destroy(this.gameObject);
         }
     }
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Trigger Enter for RockDestroyTrigger!");
-        Debug.Log(other);
-        if (other.gameObject.CompareTag("PlayerCollider"))
-        {
-            Debug.Log("Player entered radius of RockDestroyTrigger");
-
-            this.isInRange = true;
-        }
-    }
-    */
-
 
     private bool checkPlayerNum()
     {
         int counter = 0;
         GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
+
         foreach (var player in Players)
         {
-            if (Vector3.Distance(player.transform.position, this.gameObject.transform.position) <= this.Radius)
+            var distance = Vector3.Distance(player.transform.position, this.gameObject.transform.position);
+            if (distance <= this.Radius)
                 counter++;
         }
-        return counter == 2;
+        return counter == PhotonNetwork.CurrentRoom.PlayerCount;
     }
 }

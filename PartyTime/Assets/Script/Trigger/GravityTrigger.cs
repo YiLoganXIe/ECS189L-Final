@@ -12,13 +12,11 @@ public class GravityTrigger : MonoBehaviour
     
     private bool PlayerDetected;
     private GameObject ParentObj;
-    private int PlayerCounter = 0;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PlayerCollider"))
         {
-            this.PlayerCounter++;
             Debug.Log("On Rock!");
             this.PlayerDetected = true;
             ParentObj.transform.position = Vector3.Lerp(ParentObj.transform.position, this.endPosition, this.LerpAhead * Time.deltaTime);
@@ -29,12 +27,8 @@ public class GravityTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerCollider"))
         {
-            this.PlayerCounter--;
             Debug.Log("Left Rock!");
-            if (this.PlayerCounter == 0)
-            {
-                this.PlayerDetected = false;
-            }
+            this.PlayerDetected = false;
         }
     }
 
