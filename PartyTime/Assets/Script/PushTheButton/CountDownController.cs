@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-public class CountDownController : MonoBehaviour
+public class CountDownController : MonoBehaviourPun
 {
-    private int CurrentNum = 69;
-    [SerializeField] private float Interval = 0.7f;
+    [SerializeField] private int MaxNum = 69;
+    private int CurrentNum;
+    [SerializeField] private float Interval = 1.4f;
     private float ElapsedTime = 0f;
     private bool InGame = false;
     private bool ButtonPressed = false;
     [SerializeField] private GameObject TextNumber;
+    [SerializeField] private GameObject StartButton;
 
     // Chains
     [SerializeField] GameObject Chain1;
@@ -25,6 +28,8 @@ public class CountDownController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.CurrentNum = this.MaxNum;
+
         this.Chains = new List<GameObject>();
         this.Chains.Add(Chain1);
         this.Chains.Add(Chain2);
@@ -70,17 +75,6 @@ public class CountDownController : MonoBehaviour
         }
     }
 
-    public void StartGame()
-    {
-        this.InGame = true;
-        Debug.Log("Game Starts!");
-    }
-
-    public void PressButton()
-    {
-        this.ButtonPressed = true;
-    }
-
     private bool CheckCorrectAction()
     {
         bool isCorrect = true;
@@ -93,7 +87,7 @@ public class CountDownController : MonoBehaviour
                 if (this.CurrentNum % 10 == 7)
                 {
                     // Destroy one of the chains.
-                    this.RemoveChain(this.CurrentNum / 10);
+                    photonView.RPC("RemoveChain", RpcTarget.All, this.CurrentNum / 10);
                 }
             }
             else
@@ -113,23 +107,62 @@ public class CountDownController : MonoBehaviour
         return isCorrect;
     }
 
-    private void RemoveChain(int chainNum)
-    {
-        this.Chains[chainNum].SetActive(false);
-    }
-
     private void Success()
     {
-        this.InGame = false;
         Debug.Log("Unlock Succeeded!");
+        this.InGame = false;
+
+        photonView.RPC("DropLock", RpcTarget.All);
     }
 
     private void Failure()
     {
         Debug.Log("Unlock Failed at umber!" + this.CurrentNum);
         this.InGame = false;
-        this.CurrentNum = 69;
-        this.TextNumber.GetComponent<TextMeshProUGUI>().text = this.CurrentNum.ToString();
         this.ElapsedTime = 0f;
+        this.CurrentNum = this.MaxNum;
+
+        this.TextNumber.GetComponent<TextMeshProUGUI>().text = this.CurrentNum.ToString();
+        this.StartButton.SetActive(true);
+
+        photonView.RPC("ResetChains", RpcTarget.All);
+    }
+
+
+    [PunRPC]
+    private void RemoveChain(int chainNum)
+    {
+        this.Chains[chainNum].SetActive(false);
+    }
+
+    [PunRPC]
+    private void DropLock()
+    {
+        this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        var padLock = this.gameObject.transform.GetChild(0);
+        padLock.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    [PunRPC]
+    private void ResetChains()
+    {
+        foreach (var chain in this.Chains)
+        {
+            chain.SetActive(true);
+        }
+    }
+
+
+    public void StartGame()
+    {
+        this.InGame = true;
+        this.ButtonPressed = false;
+        this.StartButton.SetActive(false);
+        Debug.Log("Game Starts!");
+    }
+
+    public void PressButton()
+    {
+        this.ButtonPressed = true;
     }
 }
