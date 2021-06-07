@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUICK NOTE
+  m_text: Current Quest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa328c1ae3ffb6b4583cf371153b0be6, type: 2}
   m_sharedMaterial: {fileID: 21918420405216288, guid: fa328c1ae3ffb6b4583cf371153b0be6, type: 2}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 2831933925062760831}
   m_Layer: 5
   m_Name: Note Content
-  m_TagString: Untagged
+  m_TagString: QuestNote
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_TextViewport: {fileID: 2924861150763868276}
   m_TextComponent: {fileID: 3131174901877964746}
@@ -377,8 +377,8 @@ MonoBehaviour:
 
     Switch Button - Hide Cursor
 
-    Learn More
-    from Reminder
+    Open the Reminder
+    to Learn More (0/1)
 
     You Can Drag This Window Around
 
@@ -535,8 +535,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ESC - Call out Cursor\nSwitch Button - Hide Cursor\nLearn More from Reminder\nYou
-    Can Drag This Window Around\n\u200B"
+  m_text: "ESC - Call out Cursor\nSwitch Button - Hide Cursor\nOpen the Reminder
+    to Learn More (0/1)\nYou Can Drag This Window Around\n\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
   m_sharedMaterial: {fileID: 21539420542967178, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
