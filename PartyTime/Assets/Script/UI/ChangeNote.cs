@@ -29,7 +29,6 @@ public class ChangeNote : MonoBehaviour
             {
                 if (Note == null)
                 {
-                    Debug.Log("Cannot Find Note");
                     this.Note = GameObject.FindGameObjectWithTag("QuestNote");
                 }
                 else
@@ -43,7 +42,6 @@ public class ChangeNote : MonoBehaviour
 
     public void openNote()
     {
-        Debug.Log("Clicked NotePad!");
         if (!step1)
             step1 = true;
     }

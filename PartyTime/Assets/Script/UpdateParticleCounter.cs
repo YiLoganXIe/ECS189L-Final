@@ -8,17 +8,17 @@ public class UpdateParticleCounter : MonoBehaviour
     private GameObject playerRef;
     [SerializeField] private int num;
     [SerializeField] private GameObject Notification;
-
+    [SerializeField] private GameObject NoteToggleObject;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 
     private void OnDestroy()
@@ -33,6 +33,7 @@ public class UpdateParticleCounter : MonoBehaviour
         {
             playerRef = collision.gameObject;
             Destroy(this.gameObject);
+            NoteToggleObject.GetComponent<NoteToggle>().setStatus(true);
             // increment user's particle count --> use OnDestroy script on Particle
         }
     }
