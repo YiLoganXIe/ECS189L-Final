@@ -17,20 +17,22 @@ public class PlayerController : MonoBehaviourPun
 
     [SerializeField] private float ParticleSpawnUpwardForce;
 
+    private LookAtBoss LookAtBoss;
 
     // Start is called before the first frame update
     void Start()
     {
         this.rb = this.gameObject.GetComponent<Rigidbody>();
         this.CapsuleCollider = this.gameObject.transform.Find("Colliders/CapsuleCollider").GetComponent<CapsuleCollider>();
+        this.LookAtBoss = GameObject.Find("BossCinematicTrigger").GetComponent<LookAtBoss>();
     }
 
     [PunRPC]
     private void SpawnLightParticle(Vector3 position, PhotonMessageInfo info)
     {
-        Debug.Log($"{info.Sender} spawn the suckable particle.");
-        var particle = Instantiate(this.suckableParticlePrefab, position, Quaternion.identity);
-        particle.GetComponent<Rigidbody>().AddForce(new Vector3(0, this.ParticleSpawnUpwardForce, 0));
+            Debug.Log($"{info.Sender} spawn the suckable particle.");
+            var particle = Instantiate(this.suckableParticlePrefab, position, Quaternion.identity);
+            particle.GetComponent<Rigidbody>().AddForce(new Vector3(0, this.ParticleSpawnUpwardForce, 0));
     }
 
     // Update is called once per frame
@@ -38,11 +40,14 @@ public class PlayerController : MonoBehaviourPun
     {
         if (photonView.IsMine && Input.GetButtonDown("PlaceParticle"))
         {
-            this.minusNumParticles();
-            var generationPosition = transform.position + (transform.forward * 2) + (transform.up * 2);
-            //var generationPosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z + 2);
-            //photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
-            PhotonNetwork.Instantiate(this.suckableParticlePrefab.name, generationPosition, Quaternion.identity);
+            if (this.LookAtBoss.Triggered && GameObject.Find("Boss") != null && this.numParticles > 0)
+            {
+                this.minusNumParticles();
+                var generationPosition = transform.position + (transform.forward * 2) + (transform.up * 2);
+                //var generationPosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z + 2);
+                //photonView.RPC("SpawnLightParticle", RpcTarget.All, generationPosition);
+                PhotonNetwork.Instantiate(this.suckableParticlePrefab.name, generationPosition, Quaternion.identity);
+            }
         }
     }
 
