@@ -4,6 +4,11 @@ using Photon.Pun;
 public class LookAtBoss : MonoBehaviourPun
 {
     private bool triggered = false;
+    public bool Triggered
+    {
+        get => triggered;
+    }
+
     private float t = 0;
     private bool inCollider = false;
     [SerializeField] GameObject Boss;
