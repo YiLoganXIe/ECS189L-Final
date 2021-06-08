@@ -87,6 +87,16 @@ namespace GamingTotoro.PartyTime
             }
         }
 
+        public void Online()
+        {
+            PhotonNetwork.OfflineMode = false;
+        }
+
+        public void Offline()
+        {
+            PhotonNetwork.OfflineMode = true;
+        }
+
 
         #endregion
 

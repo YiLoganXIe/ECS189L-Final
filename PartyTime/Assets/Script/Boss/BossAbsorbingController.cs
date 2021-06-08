@@ -55,7 +55,10 @@ public class BossAbsorbingController : MonoBehaviour
     {
         if (!this.AbsorbingObjects.Contains(obj))
         {
-            this.AbsorbingObjects.Add(obj);
+            if (obj.tag == "SuckableParticle")
+                this.AbsorbingObjects.Add(obj);
+            else if (Random.Range(0, 10) > 2)
+                this.AbsorbingObjects.Add(obj);
         }
     }
 

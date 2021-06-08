@@ -1,3 +1,4 @@
+using Michsky.DreamOS;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class UpdateParticleCounter : MonoBehaviour
 {
     private GameObject playerRef;
+    [SerializeField] private int num;
+    [SerializeField] private GameObject Notification;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class UpdateParticleCounter : MonoBehaviour
     private void OnDestroy()
     {
         playerRef.GetComponent<PlayerController>().addNumParticles();
+        Notification.GetComponent<NotificationCreator>().CreateNotification();
     }
 
     private void OnCollisionEnter(Collision collision)

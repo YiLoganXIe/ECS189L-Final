@@ -2765,7 +2765,6 @@ GameObject:
   - component: {fileID: 7287152871428897831}
   - component: {fileID: 6549352097327065763}
   - component: {fileID: 4195548117442267692}
-  - component: {fileID: 140431029478401263}
   m_Layer: 31
   m_Name: CapsuleCollider
   m_TagString: PlayerCollider
@@ -2842,18 +2841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ID: 1000000011
---- !u!114 &140431029478401263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3432679255714045881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5d05f3a63f1c94193cfbc7708ce73d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3464174414239053968
 GameObject:
   m_ObjectHideFlags: 0
