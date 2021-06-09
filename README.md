@@ -208,12 +208,9 @@ Our project is a relative complex project, so there are several other logic part
 
 ## Audio
 
-**List your assets including their sources and licenses.**
-
-**Describe the implementation of your audio system.**
-
-**Document the sound style.** 
 Currently, we use the built-in sound systems from the libraries [DreamOS](https://assetstore.unity.com/packages/tools/gui/dreamos-complete-os-ui-188483) and [Ultimate Character Controller](https://opsive.com/assets/ultimate-character-controller/). Player will hear sounds when interacting with the built-in interface and from their character running.
+
+Music Contributors: He Yang, Athena Sulins
 
 ## Gameplay Testing
 
