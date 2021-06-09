@@ -17,31 +17,6 @@ Contributor: Xiyu Zhang, Yibo Yan, Yi Xie
 #### Scene Setup/Mise-en-Scene:
 Contributor: Jenna Zing, Yibo Yan, Yi Xie
 
-#### Third Party Package Usage:
-Gaia Pro 2021 - PROCEDURAL WORLDS
-
-PUN 2 - EXIT GAMES
-
-Ultimate Character Controller - OPSIVE
-
-PUN Multiplayer Add-ON - OPSIVE
-
-DreamOS - MICHSKY
-
-POLYGON - Dungeon Pack - SYNTY STUDIOS
-
-POLYGON - City Characters Pack - SYNTY STUDIOS
-
-POLYGON - Nature Pack - SYNTY STUDIOS
-
-POLYGON - Samurai Pack - SYNTY STUDIOS
-
-
-#### Art Citation
-TurboSquid:
->[Picture Frame](https://www.turbosquid.com/3d-models/picture-frame-obj-free/832657)
-[Light Tower](https://www.turbosquid.com/3d-models/lighthouse-old-light-model-1689804)
-
 ## Gameplay Explanation ##
 
 ### Basic Movement
@@ -115,10 +90,30 @@ Since according to our game theme, we are constructing a magical world, some of 
     - [Trigger Stones Floating Movement](https://github.com/YiLoganXIe/ECS189L-Final/blob/52bc7b8655c190c325dd9c836e4398694c4f58b3/PartyTime/Assets/Script/Trigger/FloatStoneTrigger.cs)
 
 ## Animation and Visuals
+DreamOS - MICHSKY
 
-**List your assets including their sources and licenses.**
+POLYGON - Dungeon Pack - SYNTY STUDIOS
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+POLYGON - City Characters Pack - SYNTY STUDIOS
+
+POLYGON - Nature Pack - SYNTY STUDIOS
+
+POLYGON - Samurai Pack - SYNTY STUDIOS
+
+TurboSquid:
+
+[Picture Frame](https://www.turbosquid.com/3d-models/picture-frame-obj-free/832657)
+
+[Light Tower](https://www.turbosquid.com/3d-models/lighthouse-old-light-model-1689804)
+
+
+Rachel Heleva:
+
+[Animated_Owl.FBX](https://github.com/YiLoganXIe/ECS189L-Final/blob/3955870e8e4ed2a8ef3feddfb272009859db46a8/PartyTime/Assets/Model/Animated_Owl.FBX)
+
+[Padlock.obj](https://github.com/YiLoganXIe/ECS189L-Final/blob/3955870e8e4ed2a8ef3feddfb272009859db46a8/PartyTime/Assets/Model/Padlock.obj)
+
+[Bycycle](https://github.com/YiLoganXIe/ECS189L-Final/blob/3955870e8e4ed2a8ef3feddfb272009859db46a8/PartyTime/Assets/Model/Bicycle.obj)
 
 
 ## Input
@@ -262,7 +257,16 @@ The text of the game is mainly focus on telling pandemic story of Yi. We hide sh
 
 *Floating Stone:* Some of the stone are set to floating in the scene. We want to let the player notice there is something worth to pay attetion. The floating stone will falling down after the interact with the player so it will feel cool.
 
+#### Third Party Package Usage:
+Gaia Pro 2021 - PROCEDURAL WORLDS
 
+PUN 2 - EXIT GAMES
+
+Ultimate Character Controller - OPSIVE
+
+PUN Multiplayer Add-ON - OPSIVE
+
+MK Glow - Michael Kremmel
     
 
     
