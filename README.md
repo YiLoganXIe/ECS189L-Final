@@ -208,12 +208,9 @@ Our project is a relative complex project, so there are several other logic part
 
 ## Audio
 
-**List your assets including their sources and licenses.**
-
-**Describe the implementation of your audio system.**
-
-**Document the sound style.** 
 Currently, we use the built-in sound systems from the libraries [DreamOS](https://assetstore.unity.com/packages/tools/gui/dreamos-complete-os-ui-188483) and [Ultimate Character Controller](https://opsive.com/assets/ultimate-character-controller/). Player will hear sounds when interacting with the built-in interface and from their character running.
+
+Music Contributor: He Yang
 
 ## Gameplay Testing
 
@@ -238,11 +235,14 @@ The text of the game is mainly focus on telling pandemic story of Yi. We hide sh
 ## Press Kit and Trailer
 
 **Include links to your presskit materials and trailer.**
-[PressKit](https://t3crowbarmaster.itch.io/hotdog-mans-pandemic-pandemonium)
-[Game Trailer]()
+[Press Kit Website](https://t3crowbarmaster.itch.io/hotdog-mans-pandemic-pandemonium)
+[Game Trailer](https://youtu.be/78buItzDoSQ)
+[Press Kit Video](https://youtu.be/4Tmiv3WD0Ng)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+Jenna Zing and Yie Xie collaborated to create both the game trailer and press kit site.  When creating the game trailer, we focused on showcasing the main elements of each level, a few scenic locations, and some fun multiplayer clips of the game.  As for the press kit site, our screenshots and gifs, we also tried to show the core elements of the game and showcase scenic locations and multiplayer functionality. 
 
+We recommend you watch our game trailer to get a good glimpse into our game, but if you want more information, see our press kit video to hear about our game's features and currently implemented levels.
 
 
 ## Game Feel
