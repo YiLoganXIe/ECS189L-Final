@@ -45,17 +45,17 @@ TurboSquid:
 ## Gameplay Explanation ##
 
 ### Basic Movement
-**Movement** - W, A, S, D / Arrow Key
+**Movement** - W, A, S, D / Arrow Key  
 
-**Adjust Camera Angle** - Mouse
+**Adjust Camera Angle** - Mouse  
 
-**Jump** - Space
+**Jump** - Space  
 
-**Attack** - Left Mouse Click
+**Attack** - Left Mouse Click  
 
-**Zoom-in** - Right Mouse Click
+**Zoom-in** - Right Mouse Click  
 
-**Call out Cursor** - ESC
+**Call out Cursor** - ESC  
 
 ### -- Special --
 **Generate Light Particle:**
