@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571334, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -901,19 +901,22 @@ MonoBehaviour:
 
     Matt Simons
 
-    All the Peers from
-    ECS189L, Spring 2021, UCD
+    He Yang (MC HeHe)
+
+
+    All
+    the Peers from ECS189L, Spring 2021, UCD
 
 
     --Beta Version--
 
 
 
-    A ECS189L Final Project
+    A ECS189L
+    Final Project
 
 
-    University
-    of California, Davis
+    University of California, Davis
 
     Instructor: Josh McCoy'
 --- !u!222 &1802455301
@@ -976,5 +979,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextObj: {fileID: 2084896300}
-  endPosition: {x: 960, y: 1582, z: 0}
-  speed: 1
+  endPosition: {x: 960, y: 1800, z: 0}
+  speed: 50

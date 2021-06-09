@@ -34,15 +34,43 @@ public class ChangeNote : MonoBehaviour
                 else
                 {
                     //Debug.Log(Note.GetComponent<TextMeshProUGUI>().text);
-                    Note.GetComponent<TMP_InputField>().text = $"Collect Memory Shards: {this.Player.GetComponent<PlayerController>().GetNumPlayerParticles()}";
+                    Note.GetComponent<TMP_InputField>().text = $"Collected Memory Shards: {this.Player.GetComponent<PlayerController>().GetNumPlayerParticles()} \n" +
+                        $"Find a way to escape this area";
                 }
             }
         }
+        if (step2)
+        {
+            if (this.Player == null)
+            {
+                this.Player = GameObject.FindWithTag("Player");
+            }
+            else
+            {
+                if (Note == null)
+                {
+                    this.Note = GameObject.FindGameObjectWithTag("QuestNote");
+                }
+                else
+                {
+                    //Debug.Log(Note.GetComponent<TextMeshProUGUI>().text);
+                    Note.GetComponent<TMP_InputField>().text = $"Collected Memory Shards: {this.Player.GetComponent<PlayerController>().GetNumPlayerParticles()} \n" +
+                        $"Press G to cast memory shards";
+                }
+            }
+        }
+        
     }
 
     public void openNote()
     {
         if (!step1)
             step1 = true;
+    }
+
+    public void BossFight()
+    {
+        step2 = true;
+        step1 = false;
     }
 }

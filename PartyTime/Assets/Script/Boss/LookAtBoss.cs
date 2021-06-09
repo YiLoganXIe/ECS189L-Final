@@ -12,6 +12,7 @@ public class LookAtBoss : MonoBehaviourPun
     private float t = 0;
     private bool inCollider = false;
     [SerializeField] GameObject Boss;
+    [SerializeField] GameObject gameScript;
     // Angular speed in radians per sec.
     public float speed = 1.0f;
 
@@ -22,6 +23,7 @@ public class LookAtBoss : MonoBehaviourPun
 
     private void SetEnableComponents(bool isEnable = false)
     {
+        gameScript.gameObject.GetComponent<ChangeNote>().BossFight();
         if (Boss.GetComponent<MeshRenderer>().enabled != isEnable)
         {
             Boss.GetComponent<MeshRenderer>().enabled = isEnable;

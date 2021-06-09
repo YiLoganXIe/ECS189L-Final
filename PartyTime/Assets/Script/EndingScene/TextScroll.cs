@@ -16,7 +16,7 @@ public class TextScroll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        endPosition = new Vector3(TextObj.transform.position.x, 1582, TextObj.transform.position.z);
+        endPosition = new Vector3(TextObj.transform.position.x, 1800, TextObj.transform.position.z);
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class MiniGameButtonController : MonoBehaviour
     [SerializeField] private GameObject AppIcon;
     [SerializeField] private Sprite LockIcon;
     [SerializeField] private Sprite UnLockIcon;
+    [SerializeField] private GameObject m_Notification;
     private TextMeshProUGUI TitleText;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class MiniGameButtonController : MonoBehaviour
             TitleText.text = "Unlock!";
             App.GetComponent<DoubleClickEvent>().enabled = true;
             AppIcon.GetComponent<Image>().sprite = UnLockIcon;
+            m_Notification.GetComponent<NotificationCreator>().CreateNotification();
         }
     }
 
@@ -44,5 +46,7 @@ public class MiniGameButtonController : MonoBehaviour
             AppIcon.GetComponent<Image>().sprite = LockIcon;
         }
     }
+
+
     
 }
