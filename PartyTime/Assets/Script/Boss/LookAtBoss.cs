@@ -23,7 +23,6 @@ public class LookAtBoss : MonoBehaviourPun
 
     private void SetEnableComponents(bool isEnable = false)
     {
-        gameScript.gameObject.GetComponent<ChangeNote>().BossFight();
         if (Boss.GetComponent<MeshRenderer>().enabled != isEnable)
         {
             Boss.GetComponent<MeshRenderer>().enabled = isEnable;
@@ -88,6 +87,7 @@ public class LookAtBoss : MonoBehaviourPun
     {
         if ((other.tag == "PlayerCollider") && (!triggered))
         {
+            gameScript.gameObject.GetComponent<ChangeNote>().BossFight();
             var cameraController = Camera.main.GetComponent<Opsive.UltimateCharacterController.Camera.CameraController>();
             cameraController.enabled = false;
             photonView.RPC("EnableBoss", RpcTarget.All);
