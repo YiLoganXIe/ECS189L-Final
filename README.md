@@ -19,14 +19,23 @@ Contributor: Jenna Zing, Yibo Yan, Yi Xie
 
 #### Third Party Package Usage:
 Gaia Pro 2021 - PROCEDURAL WORLDS
+
 PUN 2 - EXIT GAMES
+
 Ultimate Character Controller - OPSIVE
+
 PUN Multiplayer Add-ON - OPSIVE
+
 DreamOS - MICHSKY
+
 POLYGON - Dungeon Pack - SYNTY STUDIOS
+
 POLYGON - City Characters Pack - SYNTY STUDIOS
+
 POLYGON - Nature Pack - SYNTY STUDIOS
+
 POLYGON - Samurai Pack - SYNTY STUDIOS
+
 
 #### Art Citation
 TurboSquid:
@@ -37,10 +46,15 @@ TurboSquid:
 
 ### Basic Movement
 **Movement** - W, A, S, D / Arrow Key
+
 **Adjust Camera Angle** - Mouse
+
 **Jump** - Space
+
 **Attack** - Left Mouse Click
+
 **Zoom-in** - Right Mouse Click
+
 **Call out Cursor** - ESC
 
 ### -- Special --
