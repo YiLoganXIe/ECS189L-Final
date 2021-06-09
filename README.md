@@ -236,10 +236,10 @@ The text of the game is mainly focus on telling pandemic story of Yi. We hide sh
 
 **Include links to your presskit materials and trailer.**
 [PressKit](https://t3crowbarmaster.itch.io/hotdog-mans-pandemic-pandemonium)
-[Game Trailer]()
+[Game Trailer](https://youtu.be/78buItzDoSQ)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
-
+Jenna Zing and Yie Xie collaborated to create both the game trailer and press kit site.  When creating the game trailer, we focused on showcasing the main elements of each level, a few scenic locations, and some fun multiplayer clips of the game.  As for the press kit site, our screenshots and gifs, we also tried to show the core elements of the game and showcase scenic locations and multiplayer functionality. 
 
 
 ## Game Feel
