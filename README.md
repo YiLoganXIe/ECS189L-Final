@@ -236,7 +236,7 @@ The text of the game is mainly focus on telling pandemic story of Yi. We hide sh
 
 **Include links to your presskit materials and trailer.**
 [Press Kit Website](https://t3crowbarmaster.itch.io/hotdog-mans-pandemic-pandemonium)
-[Game Trailer](https://youtu.be/78buItzDoSQ)
+[Game Trailer](https://youtu.be/iH2MMCBp-EE)
 [Press Kit Video](https://youtu.be/4Tmiv3WD0Ng)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
